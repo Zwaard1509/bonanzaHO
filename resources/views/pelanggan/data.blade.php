@@ -1,13 +1,13 @@
-<table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered">
     <thead class="thead-dark">
-        <tr class="text-center">
-            <th scope="col">No</th>
-            <th scope="col">Nama pelanggan</th>
-            <th scope="col">Email</th>
-            <th scope="col">Nomor Telepon</th>
-            <th scope="col">Alamat</th>
-            <th scope="col">Action</th>
-
+    <tr class="text-center">
+    <th scope="col" style="width: 10% ;">No</th>
+    <th scope="col" style="width: 1px;">Nama pelanggan</th>
+    <th scope="col" style="width: 1px;">Email</th>
+    <th scope="col" style="width: 1px;">NO TELP</th>
+    <th scope="col" style="width: 1px;">ALAMAT</th>
+    <th scope="col" style="width: 10px;">ACTION</th>
 
         </tr>
     </thead>

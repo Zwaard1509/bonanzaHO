@@ -14,7 +14,9 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\DetailTransaksiController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProdukTitipanController;
+use App\Http\Controllers\UserController;
 
+Route::get('/login', [UserController::class, 'index'])->name('/login');
 Route::get('/', [ControllersBaseController::class, 'index']);
 Route::get('dashboard', [ControllersBaseController::class, 'index']);
 //route kategori
@@ -42,4 +44,14 @@ Route::get('about', [AboutController::class, 'index']);
 Route::resource('produktitipan', ProdukTitipanController::class);
 Route::get('excel-produktitipan', [ProdukTitipanController::class, 'exportData'])->name('export-produktitipan');
 Route::post('produktitipan/import', [ProduktitipanController::class, 'importData'])->name('import-produktitipan');
+// login
+Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::post('/login', [UserController::class, 'cekLogin'])->name('cekLogin');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', [ControllersBaseController::class, 'index']);
+    Route::get('dashboard', [ControllersBaseController::class, 'index']);
+    Route::resource('menu', MenuController::class);
+    Route::resource('transaksi', TransaksiController::class);
+});

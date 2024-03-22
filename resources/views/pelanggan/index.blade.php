@@ -43,7 +43,7 @@
             </button>
             
         </div>
-        <div class="mb-2">
+        <div class="mb-1">
             @include('pelanggan.data')
         </div>
 

@@ -105,6 +105,12 @@ Coded by www.creative-tim.com
               <p>Produk Titipan</p>
             </a>
           </li>
+          <li>
+            <a href="{{ route('logout') }}" class="nav-link">
+              <!-- <i class="nc-icon nc-caps-small"></i> -->
+              <p>Logout</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

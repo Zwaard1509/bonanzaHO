@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 @push('style')
-
+    
 @endpush
 
 @section('content')
@@ -9,8 +9,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">menu</h3>
-
+            <h3 class="card-title">Menu</h3>
         </div>
 
         <div class="card-body">
@@ -20,7 +19,6 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-
             </div>
             @endif
 
@@ -37,13 +35,11 @@
             </div>
             @endif
 
-
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormmenu" style="margin-top: 2px;">
                 Tambah menu!
-            </button>
-            
+            </button>            
         </div>
-        <div class="mb-2">
+        <div class="mb-1"> <!-- Wrap the table with .table-responsive to enable horizontal scrolling -->
             @include('menu.data')
         </div>
 
@@ -51,28 +47,30 @@
         <div class="card-footer">
             Footer
         </div>
-
     </div>
     <!-- /.card-footer-->
     @include('menu.form')
     </div>
     <!-- /.card -->
 
-</section>
 @endsection
+</section>
 
 @push('script')
 <script>
+    $(function() {
+        $('#tbl-menu').DataTable({
+            "responsive": true, // Enable responsive mode
+            "autoWidth": false // Disable auto width calculation
+        });
+    });
+
     $('#success-alert').fadeTo(500, 500).slideUp(500, function() {
         $('#success-alert').slideUp(500);
     });
 
     $('#error-alert').fadeTo(1000, 500).slideUp(1000, function() {
         $('#error-alert').slideUp(500);
-    });
-
-    $(function() {
-        $('#tbl-menu').DataTable(); // Corrected the DataTable initialization
     });
 
     // dialog hapus Data
@@ -105,5 +103,4 @@
         }
     });
 </script>
-
 @endpush

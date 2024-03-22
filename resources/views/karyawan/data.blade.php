@@ -1,3 +1,4 @@
+<div style="overflow-x: auto;">
 <table class="table">
     <thead class="thead-dark" >
         <tr class="text-center">
@@ -45,3 +46,4 @@
     @endforeach
     </tbody>
 </table>
+</div>
