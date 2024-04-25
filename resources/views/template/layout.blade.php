@@ -37,6 +37,11 @@ Coded by www.creative-tim.com
   <!-- sweet alert -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- jquery dan datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 </head>
 
 <body class="">
@@ -142,6 +147,12 @@ Coded by www.creative-tim.com
               </a>
             </li>
             <li>
+              <a href="{{ url('absensi') }}" class="nav-link" style="font-weight: bold; font-size: large;">
+              <!-- <i class="nc-icon nc-tile-56"></i> -->
+                <p>Absensi Karyawan</p>
+              </a>
+            </li>
+            <li>
               <a href="{{ url('detailtransaksi') }}" class="nav-link" style="font-weight: bold; font-size: large;">
                 <p>Detail Transaksi</p>
               </a>
@@ -158,16 +169,15 @@ Coded by www.creative-tim.com
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="nc-icon nc-zoom-split"></i>
-                  </div>
-                </div>
+            <div>
+              <div class="sidebar-menu">
+              <li>
+              <a href="{{ url('contact') }}" class="nav-link" style="font-weight: bold; font-size: large;">
+                <p>Contact US</p>
+              </a>
+            </li>
               </div>
-            </form>
+            </div>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link btn-magnify" href="javascript:;">

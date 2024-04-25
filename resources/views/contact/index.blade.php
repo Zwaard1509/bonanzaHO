@@ -9,7 +9,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">pelanggan</h3>
+            <h3 class="card-title">contact</h3>
 
         </div>
 
@@ -36,18 +36,10 @@
                 </button>
             </div>
             @endif
-
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormpelanggan" style="margin-top: 2px;">
-                Tambah pelanggan!
-            </button>
-            <a href="{{ route('export-pelanggan') }}" class="btn-btn success">
-                <i class="fa fa-file-excel"></i>Export Masseh
-            </a>
             
         </div>
-        <div class="mb-1">
-            @include('pelanggan.data')
+        <div class="mb-2">
+            @include('contact.data')
         </div>
 
         <!-- /.card-body -->
@@ -56,55 +48,30 @@
         </div>
 
     </div>
-    <!-- /.card-footer-->
-    @include('pelanggan.form')
     </div>
-    <!-- /.card -->
 
 </section>
 @endsection
 
 @push('script')
 <script>
-    $('#success-alert').fadeTo(500, 500).slideUp(500, function() {
-        $('#success-alert').slideUp(500);
-    });
-
-    $('#error-alert').fadeTo(1000, 500).slideUp(1000, function() {
-        $('#error-alert').slideUp(500);
-    });
-
-    $(function() {
-        $('#tbl-pelanggan').DataTable(); // Corrected the DataTable initialization
-    });
-
-    // dialog hapus Data
-    $('.btn-delete').on('click', function() {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
-        });
-    });
-
-    $('#modalFormpelanggan').on('show.bs.modal', function(e) {
+    $('#modalFormcontact').on('show.bs.modal', function(e) {
         const btn = $(e.relatedTarget);
         console.log(btn.data('mode'));
         const mode = btn.data('mode');
-        const nama_pelanggan = btn.data('nama_pelanggan');
+        const nama_contact = btn.data('nama_contact');
         const id = btn.data('id');
         const modal = $(this);
         if (mode === 'edit') {
-            modal.find('.modal-title').text('Edit Data pelanggan');
-            modal.find('#Nama').val(nama_pelanggan); // Assuming your input field has the id "Nama"
-            modal.find('.modal-body form').attr('action', '{{ url("pelanggan") }}/' + id);
+            modal.find('.modal-title').text('Edit Data contact');
+            modal.find('#Nama').val(nama_contact); // Assuming your input field has the id "Nama"
+            modal.find('.modal-body form').attr('action', '{{ url("contact") }}/' + id);
             modal.find('#method').html('@method("PUT")');
         } else {
-            modal.find('.modal-title').text('Input Data pelanggan');
+            modal.find('.modal-title').text('Input Data contact');
             modal.find('#Nama').val(''); // Clear the input field for new entries
             modal.find('#method').html('');
-            modal.find('.modal-body form').attr('action', '{{ url("pelanggan") }}');
+            modal.find('.modal-body form').attr('action', '{{ url("contact") }}');
         }
     });
 </script>

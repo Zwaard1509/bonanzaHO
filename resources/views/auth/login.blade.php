@@ -41,8 +41,8 @@
           @error('email')
             <div class="invalid-feedback">
               {{ $message }}
-              @enderror
             </div>
+            @enderror
         </div>
 
         <div class="input-group mb-2">
@@ -84,16 +84,18 @@
           </div>
           <!-- /.col -->
         </div>
+</div>
       </form>
 
-      <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
+      <div class="social-auth-links text-center mt-2 mb-1">
+  <a href="#" class="btn btn-block btn-primary mb-1">
+    <i class="fab fa-facebook mr-1"></i> Sign in using Facebook
+  </a>
+  <a href="#" class="btn btn-block btn-danger mb-1">
+    <i class="fab fa-google-plus mr-1"></i> Sign in using Google+
+  </a>
+</div>
+
       <!-- /.social-auth-links -->
 
       <p class="mb-1">

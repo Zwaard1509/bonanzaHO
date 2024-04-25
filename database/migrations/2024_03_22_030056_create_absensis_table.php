@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('absensis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jenis_id');
-            $table->string('nama_menu');
-            $table->integer('harga');
-            $table->string('deskripsi');
+            $table->string('namaKaryawan');
+            $table->date('tanggalMasuk');
+            $table->time('waktu_mulai');
+            $table->enum('status', ['sakit','hadir','izin'])->default('hadir'); 
+            $table->time('waktu_selesai');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('absensis');
     }
 };

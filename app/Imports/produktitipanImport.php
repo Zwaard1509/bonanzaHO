@@ -15,17 +15,12 @@ class produktitipanImport implements ToModel
     public function model(array $row)
     {
         return new produktitipan([
-            'nama_produk' => $row['nama_produk'],
-            'nama_supplier' => $row['nama_supplier'],
-            'harga_jual' => $row['harga_jual'],
-            'harga_beli' => $row['harga_beli'],
-            'stok' => $row['stok'],
-            'keterangan' => $row['keterangan']
+            'nama_produk' => $row[0],
+            'nama_supplier' => $row[1],
+            'harga_jual' => $row[2],
+            'harga_beli' => $row[3],
+            'stok' => $row[4],
+            'keterangan' => $row[5]
         ]);
-    }
-
-    public function headingRow(): int
-    {
-        return 5;
     }
 }

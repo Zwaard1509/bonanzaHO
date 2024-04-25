@@ -10,7 +10,7 @@ use Exception;
 use Illuminate\Database\QueryException;
 use PDOException;
 
-class karyawanController extends Controller
+class KaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.

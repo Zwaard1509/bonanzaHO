@@ -41,6 +41,9 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormkaryawan" style="margin-top: 2px;">
                 Tambah karyawan!
             </button>
+            <a href="{{ route('export-pelanggan') }}" class="btn-btn success">
+                <i class="fa fa-file-excel"></i>Export Masseh
+            </a>
             
         </div>
         <div class="mb-5">

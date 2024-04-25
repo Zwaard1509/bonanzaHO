@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
             $table->integer('total_harga');
             $table->string('metode_pembayaran');
             $table->text('keterangan')->nullable();
-            $table->date('tanggal');
             $table->timestamps();
         });
     }

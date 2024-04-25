@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Jenis;
 use App\Models\Kategori;
+use App\Exports\ExportJenis;
+use App\Imports\JenisImport;
 use App\Http\Requests\StorejenisRequest;
 use App\Http\Requests\UpdatejenisRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Exception;
+use Excel;
 use Illuminate\Database\QueryException;
 use PDOException;
 
@@ -86,5 +90,16 @@ class jenisController extends Controller
     {
         $jenis->delete();
         return redirect('jenis')->with('success', 'Data Berhasil Dihapus!');
+    }
+
+    public function exportData()
+    {
+        return Excel::download(new ExportJenis, 'Jenis.xlsx');
+    }
+
+    public function importData(Request $request)
+    {
+        Excel::import(new JenisImport, $request->import);
+        return redirect('jenis')->with('success', 'Import data berhasil');
     }
 }

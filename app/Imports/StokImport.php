@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\Kategori;
+use App\Models\Stok;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class KategoriImport implements ToModel
+class StokImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,8 +14,8 @@ class KategoriImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Kategori([
-            'name' => $row[0],
+        return new Stok([
+            //
         ]);
     }
 }

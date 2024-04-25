@@ -72,9 +72,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url(request()->segment(1).'/produktitipan/import') }}"
-                enctype="multipart/form-data">
-                @csrf
+                <form action="{{url('import-produktitipan')}}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+            </div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="kategori">File Excel</label>

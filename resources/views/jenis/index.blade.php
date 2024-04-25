@@ -41,6 +41,12 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormjenis" style="margin-top: 2px;">
                 Tambah jenis!
             </button>
+            <a href="{{ route('export-jenis') }}" class="btn-btn success">
+                <i class="fa fa-file-excel"></i>Export Masseh
+            </a>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#JenisImport">
+                <i class="fas fa-file-excel"></i>Import
+            </button>
             
         </div>
         <div class="mb-2">

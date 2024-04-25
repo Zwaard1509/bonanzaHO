@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\menu;
 use App\Models\jenis;
+use App\Exports\ExportMenu;
+use App\Imports\MenuImport;
 use App\Http\Requests\StoremenuRequest;
 use App\Http\Requests\UpdatemenuRequest;
 use Illuminate\Support\Facades\DB;
 use Exception;
+use Illuminate\Http\Request;
+use Excel;
 use Illuminate\Database\QueryException;
 use PDOException;
 
@@ -79,6 +83,17 @@ class menuController extends Controller
             $menu->delete();
             return redirect('menu')->with('success', 'Data Berhasil Dihapus!');
         }
+    }
+
+    public function exportData()
+    {
+        return Excel::download(new ExportMenu, 'Menu.xlsx');
+    }
+
+    public function importData(Request $request)
+    {
+        Excel::import(new MenuImport, $request->import);
+        return redirect('menu')->with('success', 'Import data berhasil');
     }
 
 }

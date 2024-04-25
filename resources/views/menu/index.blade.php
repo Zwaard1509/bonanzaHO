@@ -37,7 +37,14 @@
 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormmenu" style="margin-top: 2px;">
                 Tambah menu!
-            </button>            
+            </button>
+            <button type="button" href="{{ route('export-menu') }}" class="btn btn-success">
+                <i class="fas fa-file-excel"></i>Export Masseh
+            </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#menuImport">
+                    Import data
+            </button>
         </div>
         <div class="mb-1"> <!-- Wrap the table with .table-responsive to enable horizontal scrolling -->
             @include('menu.data')

@@ -86,18 +86,39 @@ $(function() {
 $('.btn-delete').on('click', function() {
     var data = $(this).data(); // Mengambil data dari tombol delete
     Swal.fire({
-        title: data.message,
-        showDenyButton: true,
-        confirmButtonText: "Delete",
-        denyButtonText: `Cancel`
+        title: "Are you sure?",
+        text: data.message,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-
-        } else if (result.isDenied) {
-            location.reload();
+            // Jika tombol "Delete" diklik, tambahkan kode untuk melakukan penghapusan data
+            // Misalnya, menggunakan AJAX untuk mengirim permintaan penghapusan ke server
+            $.ajax({
+                url: data.url, // Ubah dengan URL yang benar untuk penghapusan data
+                method: 'DELETE',
+                success: function(response) {
+                    // Tampilkan pesan sukses jika data berhasil dihapus
+                    Swal.fire('Deleted!', 'Your data has been deleted.', 'success');
+                    // Reload halaman atau update tampilan data jika diperlukan
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    // Tampilkan pesan error jika terjadi kesalahan saat menghapus data
+                    Swal.fire('Error!', 'Failed to delete data.', 'error');
+                    console.error(xhr.responseText);
+                }
+            });
+        } else if (result.isDismissed) {
+            // Jika tombol "Cancel" diklik atau dialog ditutup, tidak lakukan apa-apa
+            // Anda dapat menambahkan kode lain di sini jika diperlukan
         }
     });
 });
+
+
 
 $('#modalFormproduktitipan').on('show.bs.modal', function(e) {
     const btn = $(e.relatedTarget);

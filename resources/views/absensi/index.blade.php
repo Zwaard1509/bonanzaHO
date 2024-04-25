@@ -9,7 +9,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">kategori</h3>
+            <h3 class="card-title">absensi</h3>
 
         </div>
 
@@ -38,21 +38,16 @@
             @endif
 
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormKategori" style="margin-top: 2px;">
-                Tambah kategori!
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormabsensi" style="margin-top: 2px;">
+                Tambah absensi!
             </button>
-            &nbsp;
-            <button type="button" href="{{ route('export-kategori') }}" class="btn btn-success">
-                <i class="fas fa-file-excel"></i>Export Masseh
-            </button>
-            
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#KategoriImport">
-                <i class="fas fa-file-excel"></i>Import
-            </button>
-            
+            <a href="{{ route('export-absensi') }}" class="btn btn-primary" style="margin-top: 2px;">
+                 <i class="fa fa-file-excel"></i> Export Masseh
+            </a>
+    
         </div>
-        <div class="mb-2">
-            @include('kategori.data')
+        <div class="mb-5">
+            @include('absensi.data')
         </div>
 
         <!-- /.card-body -->
@@ -62,25 +57,27 @@
 
     </div>
     <!-- /.card-footer-->
-    @include('kategori.form')
-    </div>
-    <!-- /.card -->
+<!-- /.card -->
+@include('absensi.form')
 
 </section>
 @endsection
 
 @push('script')
 <script>
+    $(function() {
+        $('#tbl-absensi').DataTable({
+            "responsive": true, // Enable responsive mode
+            "autoWidth": false // Disable auto width calculation
+        });
+    });
+
     $('#success-alert').fadeTo(500, 500).slideUp(500, function() {
         $('#success-alert').slideUp(500);
     });
 
     $('#error-alert').fadeTo(1000, 500).slideUp(1000, function() {
         $('#error-alert').slideUp(500);
-    });
-
-    $(function() {
-        $('#tbl-kategori').DataTable(); // Corrected the DataTable initialization
     });
 
     // dialog hapus Data
@@ -93,25 +90,28 @@
         });
     });
 
-    $('#modalFormKategori').on('show.bs.modal', function(e) {
+    $('#modalFormabsensi').on('show.bs.modal', function(e) {
         const btn = $(e.relatedTarget);
         console.log(btn.data('mode'));
         const mode = btn.data('mode');
-        const nama_kategori = btn.data('nama_kategori');
+        const nama_absensi = btn.data('namaKaryawan');
         const id = btn.data('id');
         const modal = $(this);
         if (mode === 'edit') {
-            modal.find('.modal-title').text('Edit Data kategori');
-            modal.find('#Nama').val(nama_kategori); // Assuming your input field has the id "Nama"
-            modal.find('.modal-body form').attr('action', '{{ url("kategori") }}/' + id);
-            modal.find('#method').html('@method("PUT")');
+            modal.find('.modal-title').text('Edit Data absensi');
+            modal.find('#Nama').val(nama_absensi); // Assuming your input field has the id "Nama"
+            modal.find('.modal-content form').attr('action', '{{ url("absensi") }}/' + id);
+            modal.find('#method').html('@method('PUT')');
         } else {
-            modal.find('.modal-title').text('Input Data kategori');
+            modal.find('.modal-title').text('Input Data absensi');
             modal.find('#Nama').val(''); // Clear the input field for new entries
             modal.find('#method').html('');
-            modal.find('.modal-body form').attr('action', '{{ url("kategori") }}');
+            modal.find('.modal-body form').attr('action', '{{ url("absensi") }}');
         }
     });
 </script>
+
+<!-- </div> tutup div utama -->
+
 
 @endpush

@@ -8,6 +8,7 @@ use App\Imports\KategoriImport;
 use App\Http\Requests\StorekategoriRequest;
 use App\Http\Requests\UpdatekategoriRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Exception;
 use Excel;
 use Illuminate\Database\QueryException;
@@ -87,9 +88,9 @@ class kategoriController extends Controller
         return Excel::download(new ExportKategori, 'Kategori.xlsx');
     }
 
-    public function importData()
+    public function importData(Request $request)
     {
-        Excel::import(new KategoriImport, request()->file('import'));
-        return redirect(request()->segment(1).'Kategori')->with('sukses ya kak');
+        Excel::import(new KategoriImport, $request->import);
+        return redirect('kategori')->with('success', 'Import data berhasil');
     }
 }

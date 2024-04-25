@@ -7,6 +7,8 @@ use App\Http\Requests\StorestokRequest;
 use App\Http\Requests\UpdatestokRequest;
 use Illuminate\Support\Facades\DB;
 use Exception;
+use Excel;
+use App\Exports\ExportStok;
 use Illuminate\Database\QueryException;
 use PDOException;
 
@@ -77,6 +79,11 @@ class stokController extends Controller
             $stok->delete();
             return redirect('stok')->with('success', 'Data Berhasil Dihapus!');
         }
+    }
+
+    public function exportData()
+    {
+        return Excel::download(new ExportStok, 'Stok.xlsx');
     }
 
 }

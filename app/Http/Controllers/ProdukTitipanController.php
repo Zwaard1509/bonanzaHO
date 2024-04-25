@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\produktitipan  ;
 use App\Exports\Exportproduktitipan;
-use App\Exports\produktitipanImport;
+use App\Imports\produktitipanImport;
 use App\Http\Requests\StoreproduktitipanRequest;
 use App\Http\Requests\UpdateproduktitipanRequest;
 use Illuminate\Support\Facades\DB;
@@ -91,7 +91,6 @@ class produktitipanController extends Controller
     public function importData()
     {
         Excel::import(new produktitipanImport, request()->file('import'));
-        return redirect(request()->segment(1).'produktitipan')->with('sukses ya kak');
+        return redirect(request()->segment(1))->with('sukses ya kak');
     }
-
 }

@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\Kategori;
+use App\Models\Absensi;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class KategoriImport implements ToModel
+class AbsensiImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,8 +14,9 @@ class KategoriImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Kategori([
-            'name' => $row[0],
+        return new Absensi([
+            'namaKaryawan' => $row[0],
+            'tanggalMasuk' => $row[1],
         ]);
     }
 }
